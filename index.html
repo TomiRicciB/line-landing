@@ -128,7 +128,7 @@ section{padding:var(--sec) 0}
 .three{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 @media(max-width:900px){.three{grid-template-columns:1fr}}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px;position:relative;overflow:hidden;transition:border-color .3s,transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s;display:flex;flex-direction:column}
-.card:hover{border-color:var(--line2);transform:translateY(-4px) scale(1.015);box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.card:hover{border-color:#3d3d45;transform:translateY(-6px) scale(1.025);box-shadow:0 30px 70px rgba(0,0,0,.55)}
 .card .num{font-size:11px;letter-spacing:.18em;color:var(--red);font-weight:500;margin-bottom:24px}
 .card h3{margin-bottom:9px}
 .card p{color:var(--muted);font-size:14.5px;min-height:44px}
@@ -354,20 +354,19 @@ section{padding:var(--sec) 0}
 .sheet{position:relative;width:min(760px,100%);max-height:86vh;overflow:auto;background:var(--panel);border:1px solid var(--line2);border-radius:24px;padding:38px;box-shadow:0 50px 120px rgba(0,0,0,.65);opacity:0;transform:translateY(16px) scale(.985);transition:opacity .3s cubic-bezier(.2,.7,.2,1),transform .3s cubic-bezier(.2,.7,.2,1)}
 .modal.in .sheet{opacity:1;transform:none}
 @media(max-width:640px){.modal{padding:0;align-items:flex-end}.sheet{border-radius:22px 22px 0 0;max-height:92vh;padding:28px 22px 34px;transform:translateY(40px)}}
+.sheet:focus{outline:none}
 .sheet .x{position:absolute;top:20px;right:20px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line2);background:transparent;cursor:pointer;color:var(--muted);display:flex;align-items:center;justify-content:center;transition:.2s}
 .sheet .x:hover{color:var(--text);border-color:#55555c}
 .sheet .x svg{width:15px;height:15px}
-.sheet h3{font-size:30px;font-weight:300;letter-spacing:-.02em;margin:12px 0 10px;padding-right:44px}
-.sheet .sub{color:var(--muted);font-size:15px;max-width:560px}
-.way{border-top:1px solid var(--line);padding:22px 0 4px;display:grid;grid-template-columns:34px 1fr;gap:16px;align-items:start}
-.way:first-of-type{margin-top:26px}
-.way .ic{width:34px;height:34px;border-radius:10px;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;color:var(--text);flex:none}
-.way .ic svg{width:16px;height:16px}
-.way h4{font-size:17px;font-weight:400;margin-bottom:6px}
-.way p{color:var(--muted);font-size:14px;line-height:1.55}
-.way .ex{margin-top:10px;border:1px solid var(--line);border-radius:10px;background:#0e0e10;padding:10px 12px;font-size:12.5px;color:var(--muted);line-height:1.6}
-.way .ex b{color:var(--text);font-weight:400}
-.foot-note{margin-top:26px;border-top:1px solid var(--line);padding-top:20px;font-size:13px;color:var(--faint)}
+.sheet h3{font-size:27px;font-weight:300;letter-spacing:-.02em;margin:10px 0 8px;padding-right:44px}
+.sheet .sub{color:var(--muted);font-size:14.5px;max-width:560px}
+.way{border-top:1px solid var(--line);padding:16px 0 2px;display:grid;grid-template-columns:32px 1fr;gap:15px;align-items:start}
+.way:first-of-type{margin-top:18px}
+.way .ic{width:32px;height:32px;border-radius:9px;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;color:var(--text);flex:none}
+.way .ic svg{width:15px;height:15px}
+.way h4{font-size:16.5px;font-weight:400;margin-bottom:5px}
+.way p{color:var(--muted);font-size:13.5px;line-height:1.55}
+.foot-note{margin-top:18px;border-top:1px solid var(--line);padding-top:15px;font-size:12.5px;color:var(--faint)}
 
 /* footer */
 footer{border-top:1px solid var(--line);padding:48px 0;color:var(--faint);font-size:13px}
@@ -726,7 +725,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 <!-- MODAL -->
 <div class="modal" id="modal" aria-hidden="true">
   <div class="bd" data-close></div>
-  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" tabindex="-1">
     <button class="x" data-close aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
     <div id="sheetIn"></div>
   </div>
@@ -735,89 +734,85 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 <template id="m1">
   <div class="eyebrow red">01 · El admin</div>
   <h3 id="sheetTitle">Cómo se arma una noche</h3>
-  <p class="sub">Es la única pantalla que usa el admin antes de que abra la puerta. Dos minutos desde la computadora y la noche queda lista para que el equipo cargue.</p>
+  <p class="sub">Dos minutos desde la computadora, antes de que el equipo empiece a cargar.</p>
   <div class="way">
     <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></div>
     <div>
       <h4>Nombre, fecha, capacidad y cierre de lista</h4>
-      <p>Hasta el cierre los RRPP cargan y editan. Si lo dejás vacío, la lista cierra sola cuando abrís la puerta.</p>
+      <p>Hasta el cierre los RRPP cargan y editan. Si lo dejás vacío, la lista cierra sola cuando abre la puerta.</p>
     </div>
   </div>
   <div class="way">
     <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11l-3 3-2-2"/></svg></div>
     <div>
-      <h4>Tildás quién trabaja esta noche y con cuánto cupo</h4>
-      <p>El equipo ya está cargado: solo marcás quiénes entran en esta noche. Los que no trabajan quedan apagados y no ven nada.</p>
-      <div class="ex">Arriba de la lista, siempre a la vista: <b>4 · 155 de 500 cupos</b>. Es el error clásico —repartir más lugares de los que entran— y te lo avisa con la cuenta hecha, antes de crear la noche.</div>
+      <h4>Quién trabaja esta noche y con cuánto cupo</h4>
+      <p>El equipo ya está cargado: tildás quiénes entran. Arriba ves «2 · 210 de 1200», así no repartís más lugares de los que hay.</p>
     </div>
   </div>
   <div class="way">
     <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V8a5 5 0 0 1 10 0v3"/></svg></div>
     <div>
-      <h4>Un código de seis números para la puerta</h4>
-      <p>Se lo mandás por WhatsApp a quien atiende la puerta. No necesita cuenta ni instalar nada, y el código deja de servir cuando cerrás la noche.</p>
+      <h4>El código de la puerta</h4>
+      <p>Seis números que mandás por WhatsApp a quien atiende. Sin cuenta, sin instalar nada, y deja de servir cuando cerrás la noche.</p>
     </div>
   </div>
-  <div class="foot-note">La noche siguiente la duplicás: mismo equipo, mismos cupos, cambiás la fecha y listo.</div>
+  <div class="foot-note">La noche siguiente la duplicás: mismo equipo, mismos cupos, cambiás la fecha.</div>
 </template>
 
 <template id="m2">
   <div class="eyebrow red">02 · El equipo</div>
   <h3 id="sheetTitle">Las tres maneras de sumar gente</h3>
-  <p class="sub">Cada RRPP carga como le llega la gente, no como le convendría al sistema. Las tres maneras terminan en la misma lista y descuentan del mismo cupo.</p>
+  <p class="sub">Cada uno carga como le llega la gente. Las tres terminan en la misma lista y descuentan del mismo cupo.</p>
   <div class="way">
     <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-4-1L3 21l2.1-4.9A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/></svg></div>
     <div>
       <h4>Pegar el mensaje de WhatsApp</h4>
-      <p>Tal cual llega: con numeración, guiones, viñetas y emojis. line separa nombre y apellido de cada línea, descarta el título del mensaje y te avisa si esa persona ya está en otra lista.</p>
-      <div class="ex">Antes de cargar te muestra la revisión completa: destildás a uno, lo corregís o lo borrás, y elegís a qué lista va. <b>Nada se carga hasta que apretás Cargar.</b></div>
+      <p>Tal cual llega, con numeración, guiones y emojis. line separa nombre y apellido, descarta el título del mensaje y avisa si esa persona ya está en otra lista.</p>
     </div>
   </div>
   <div class="way">
     <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5h5"/><path d="M19 8v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7z"/><path d="M9 13h6M9 17h4"/></svg></div>
     <div>
       <h4>Subir un Excel o un CSV</h4>
-      <p>Para las listas que ya vienen armadas en una planilla: cumpleaños, cortesías, listas de productora. Reconoce solo el separador y las columnas —nombre, apellido, DNI, género, celular— tengan o no encabezado.</p>
-      <div class="ex">Acá no hay tope de 300: un archivo entra completo y cada persona queda como invitado propio, para que la puerta no los junte a todos en un mismo grupo.</div>
+      <p>Para las listas que ya vienen en planilla: cumpleaños, cortesías, listas de la productora. Reconoce solo el separador y las columnas, con encabezado o sin él.</p>
     </div>
   </div>
   <div class="way">
     <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h2"/><path d="M18 14v7M14.5 17.5h7"/></svg></div>
     <div>
       <h4>Anotar un invitado suelto</h4>
-      <p>El que te escribe a las dos de la mañana. Nombre, apellido y, si querés, DNI y acompañantes. Un campo, dos toques, y ya está en la puerta.</p>
+      <p>El que te escribe a las dos de la mañana. Nombre, apellido, y ya está en la puerta.</p>
     </div>
   </div>
-  <div class="foot-note">Cargue como cargue, el RRPP ve siempre lo mismo: su lista, su cupo y cuánto le queda.</div>
+  <div class="foot-note">Nada se carga hasta que apretás Cargar. Y el RRPP ve siempre lo mismo: su lista y su cupo.</div>
 </template>
 
 <template id="m3">
   <div class="eyebrow red">03 · La puerta</div>
   <h3 id="sheetTitle">Cómo se tilda en la puerta</h3>
-  <p class="sub">Una sola pantalla, una sola tarea. Está pensada para las tres de la mañana, con frío, apuro y el celular en una mano.</p>
+  <p class="sub">Una sola pantalla, una sola tarea. Pensada para las tres de la mañana, con frío y apuro.</p>
   <div class="way">
     <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></div>
     <div>
       <h4>Tres letras y aparece</h4>
-      <p>Busca por nombre, apellido o DNI, y subraya en rojo la parte que coincide con lo que escribiste. El teclado se abre solo: es lo único que se puede tocar en la pantalla.</p>
+      <p>Busca por nombre, apellido o DNI y subraya en rojo lo que coincide. El teclado se abre solo: es lo único que se toca en la pantalla.</p>
     </div>
   </div>
   <div class="way">
     <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div>
     <div>
       <h4>Un toque es una persona</h4>
-      <p>El botón blanco redondo es lo más brillante de la pantalla y se apunta con el pulgar sin leer. Cuando tildás a alguien, los que estaban anotados con él suben arriba con el nombre completo a la vista, y cada uno entra con su propio toque.</p>
-      <div class="ex">Nadie entra “de a nueve” por accidente, y si el grupo estaba mal armado lo peor que pasa es que aparecen nombres que nadie toca. <b>El contador de en sala nunca miente.</b></div>
+      <p>Al tildar a alguien, los que estaban anotados con él suben arriba y cada uno entra con su propio toque. Nadie entra de a nueve por accidente y el contador nunca miente.</p>
     </div>
   </div>
   <div class="way">
     <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M5 12.5a11 11 0 0 1 4-2.6M2 8.8A16 16 0 0 1 8 5.3M22 8.8a16 16 0 0 0-8.6-3.7M18.8 12.3a11 11 0 0 0-2.6-1.6"/><path d="M8.6 16.1a6 6 0 0 1 6.8 0"/><circle cx="12" cy="20" r="1"/></svg></div>
     <div>
       <h4>Sin señal sigue andando</h4>
-      <p>Los tildes se guardan en el celular y se mandan solos cuando vuelve la señal. La pantalla te muestra cuántos quedaron guardados, y podés bajarte la lista completa por si se corta del todo.</p>
+      <p>Los tildes se guardan en el celular y se mandan solos cuando vuelve. La pantalla muestra cuántos quedaron esperando.</p>
     </div>
   </div>
-  <div class="foot-note">Si tildaste a la persona equivocada, deshacés desde el aviso de abajo o desde su ficha. Nunca desde el botón que estás tocando cien veces por noche.</div>
+  <div class="foot-note">Si tildaste al equivocado, deshacés desde el aviso de abajo o desde su ficha. Nunca desde el botón que tocás cien veces por noche.</div>
 </template>
 
 <script>
@@ -958,7 +953,7 @@ mountDoor(document.getElementById('sc2'),{adentro:187,lastPrefix:'Último: ',idl
     modal.classList.add('on');modal.setAttribute('aria-hidden','false');
     document.documentElement.classList.add('locked');
     requestAnimationFrame(()=>modal.classList.add('in'));
-    modal.querySelector('.x').focus();
+    modal.querySelector('.sheet').focus({preventScroll:true});
   }
   function close(){
     modal.classList.remove('in');modal.setAttribute('aria-hidden','true');
