@@ -129,6 +129,10 @@ section{padding:var(--sec) 0}
 @media(max-width:900px){.three{grid-template-columns:1fr}}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px;position:relative;overflow:hidden;transition:border-color .3s,transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s;display:flex;flex-direction:column}
 .card:hover{border-color:#3d3d45;transform:translateY(-6px) scale(1.025);box-shadow:0 30px 70px rgba(0,0,0,.55)}
+/* la regla va con .three adelante: si no, el .rv.in de la animación de
+   aparición (misma especificidad, pero más abajo) le pisa el transform */
+.three .card{transition:border-color .3s,transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.three .card:hover{border-color:#3d3d45;transform:translateY(-6px) scale(1.025);box-shadow:0 30px 70px rgba(0,0,0,.55)}
 .card .num{font-size:11px;letter-spacing:.18em;color:var(--red);font-weight:500;margin-bottom:24px}
 .card h3{margin-bottom:9px}
 .card p{color:var(--muted);font-size:14.5px;min-height:44px}
